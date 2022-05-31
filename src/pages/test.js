@@ -1,13 +1,12 @@
 import React from "react";
-import Head from "../components/head";
+import Layout from "../components/Layout";
 
 function TestPage() {
   return (
-    <main>
+    <Layout>
       <title>test</title>
-      <Head />
       <h1>test 페이지 입니다.</h1>
-    </main>
+    </Layout>
   );
 }
 
