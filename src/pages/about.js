@@ -3,9 +3,8 @@ import Layout from "../components/layout";
 
 function AboutPage() {
   return (
-    <Layout>
-      <title>자기소개</title>
-      <h1>자기소개 페이지 입니다.</h1>
+    <Layout pageTitle="About Me">
+      <p>I'm making this by following the Gatsby Tutorial</p>
     </Layout>
   );
 }
