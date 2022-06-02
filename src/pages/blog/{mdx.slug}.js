@@ -17,14 +17,14 @@ const BlogPost = ({ data }) => {
 export const query = graphql`
   query ($id: String) {
     mdx(id: { eq: $id }) {
+      body
       frontmatter {
         title
         date(formatString: "MMMM D, YYYY")
         hero_image {
-          relativePath
-          name
-          ext
-          size
+          childImageSharp {
+            gatsbyImageData
+          }
         }
       }
       body
