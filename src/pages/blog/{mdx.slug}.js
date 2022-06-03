@@ -2,7 +2,9 @@ import { graphql } from "gatsby";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
-import Layout from "../../components/layout";
+import Layout from "../../components/Layout";
+import CodeBlock from "../../components/CodeBlock";
+import { MDXProvider } from "@mdx-js/react";
 
 const BlogPost = ({ data }) => {
   // && and연산자를 사용해서 data.mdx.frontmatter.hero_image에 값이 없을 시(null) getImage실행을 안하도록 함.
@@ -33,7 +35,13 @@ const BlogPost = ({ data }) => {
       )}
 
       <hr />
-      <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      <MDXProvider
+        components={{
+          pre: CodeBlock,
+        }}
+      >
+        <MDXRenderer>{data.mdx.body}</MDXRenderer>
+      </MDXProvider>
     </Layout>
   );
 };
